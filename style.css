@@ -1,0 +1,25 @@
+html {
+    box-sizing: border-box;
+  }
+  and
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+
+body {
+    height: 100%;
+}
+
+#gridhouse {
+    display: flex;
+    border: 3px pink dotted;
+    justify-content: space-around;
+    height: 75vh;
+    width: 75vh;
+}
+
+.tile {
+    border: 1px black solid;
+    flex-grow: 1;
+}
