@@ -14,11 +14,11 @@ gridhouse.appendChild(tile2);
 */
 
 function addGrid(gridSize) {
-    for(let gridCounter = 0; gridCounter < gridSize; gridCounter++) {
+    for(let gridCounter = 0; gridCounter < gridSize ** 2; gridCounter++) {
         let div = document.createElement("div");
         div.classList.toggle("tile");
+        div.style.cssText = (`min-width: ${100/gridSize}%; min-height: ${100/gridSize}%`);
         gridhouse.appendChild(div);
     }
 }
-
-addGrid(15);
+addGrid(100);

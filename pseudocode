@@ -1,2 +1,6 @@
-- Create framework for 16x16 grid.
-- ADD EACH VIA JS
+- Add hover attribute to each tile
+- Add user button to remove old + add new grid
+- Make grid size be user width squared.
+- Make user button adapt min-width/height to 100 
+divided by grid width % (min-width: 100/[#]%;).
+
