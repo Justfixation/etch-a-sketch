@@ -22,12 +22,12 @@ body {
 }
 
 .tile {
-    border: 1px black solid;
-/*    
-    min-width: 25%;
-    min-height: 25%;
-*/
+    border: 0.1px #DCDCDC solid;
     margin: 0px;
     flex-grow: 1;
     box-sizing: border-box;
+}
+
+.coloredTile {
+  background-color: blue;
 }
