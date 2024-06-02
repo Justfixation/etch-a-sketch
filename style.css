@@ -14,12 +14,15 @@ body {
 #gridhouse {
     display: flex;
     border: 3px pink dotted;
-    justify-content: space-around;
+    justify-content: center;
     height: 75vh;
     width: 75vh;
+    flex-flow: row wrap;
 }
 
 .tile {
     border: 1px black solid;
+    min-width: 10%;
+    margin: 0px;
     flex-grow: 1;
 }
