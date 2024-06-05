@@ -17,16 +17,16 @@ function addGridWidth(gridWidth) {
 
 let resetMsg = "Enter a width from 1-100";
 function resetGrid() {
-    resetBtn.textContent = "Reset/Resize";
     while(gridhouse.firstChild) {
         gridhouse.removeChild(gridhouse.lastChild);
     }
     /* Removes child tiles if any exist*/
     let gridWidth = prompt(resetMsg);
-    if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth >= 0) {
+    if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth > 0) {
         resetMsg = "Enter a width from 1-100";
+        resetBtn.textContent = "Reset/Resize";
         addGridWidth(gridWidth);
-    } else if(gridWidth == null) {
+    } else if(gridWidth == null || gridWidth == 0) {
         resetBtn.textContent = "Click to add a sketch grid";
         /*Resets to square 1 if user backs out (since grid is now cleared)*/
     } else {
@@ -37,4 +37,3 @@ function resetGrid() {
 }
 
 resetBtn.addEventListener("click", resetGrid);
-
