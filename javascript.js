@@ -9,7 +9,39 @@ function addGridWidth(gridWidth) {
         /*Changes tile size to fit with other tiles */
         let darkness = 1;
         div.addEventListener("mouseenter", () => {
-            div.classList.add("coloredTile");
+            let color = Math.floor(Math.random() * 7) + 1;
+            switch(color) {
+                case 1:
+                    div.style.backgroundColor = "Red";
+                    break;
+            
+                case 2:
+                    div.style.backgroundColor = "Orange";
+                    break;
+
+                case 3:
+                    div.style.backgroundColor = "Yellow";
+                    break;
+
+                case 4:
+                    div.style.backgroundColor = "Green";
+                    break;
+
+                case 5:
+                    div.style.backgroundColor = "Blue";
+                    break;
+            
+                case 6:
+                    div.style.backgroundColor = "Indigo";
+                    break;
+            
+                case 7:
+                    div.style.backgroundColor = "Violet";
+                    break;
+            
+                default:
+                    alert("Oops, something went wrong!");
+            }
             div.style.opacity = `${darkness}`;
             if(darkness >= 0) {
                 darkness -= 0.1;
