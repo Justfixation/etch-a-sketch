@@ -13,7 +13,7 @@ body {
 
 #gridhouse {
     display: flex;
-    border: 3px pink dotted;
+    
     justify-content: center;
     align-items: center;
     height: 75vh;

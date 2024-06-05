@@ -4,3 +4,7 @@
 - Make user button adapt min-width/height to 100 
 divided by grid width % (min-width: 100/[#]%;).
 
+- Add resetGrid function, which removes all children tiles and
+asks the user how big the new grid should be.
+- If the response isn't a number or is above 100, re-do
+the alert asking for a number from 1-100.
