@@ -11,6 +11,10 @@ body {
     height: 100%;
 }
 
+p {
+  width: 75vh;
+}
+
 #gridHouse {
     display: flex;
     
