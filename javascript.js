@@ -7,17 +7,60 @@ function addGridWidth(gridWidth) {
         div.classList.add("tile");
         div.style.cssText = (`min-width: ${100/gridWidth}%; min-height: ${100/gridWidth}%`);
         /*Changes tile size to fit with other tiles */
-        let darkness = 1;
+        let darkness = 0.9;
         div.addEventListener("mouseenter", () => {
             div.style.opacity = `${darkness}`;
             let newColor = randomizeColor();
             div.style.backgroundColor = newColor;
             if(darkness >= 0) {
-                darkness -= 0.1;
+                darkness -= 0.3;
             }
         });
         /* Changes tile to blue when hovered, and 10% closer to black every time after */
         gridHouse.appendChild(div);
+    }
+}
+
+function randomizeColor() {
+    let color = Math.floor(Math.random() * 7) + 1;
+    switch(color) {
+        case 1:
+            return "#140771";
+            /*dk blue*/
+            break;
+    
+        case 2:
+            return "#163483";
+            /*blue*/
+            break;
+
+        case 3:
+            return "#1857A8";
+            /*lt blue*/
+            break;
+
+        case 4:
+            return "#188D9E";
+            /*teal*/
+            break;
+
+        case 5:
+            return "#17A589";
+            /*pastel green*/
+            break;
+    
+        case 6:
+            return "#38993E";
+            /*Lime*/
+            break;
+    
+        case 7:
+            return "#005906";
+            /*dk green*/
+            break;
+    
+        default:
+            alert("Oops, something went wrong!");
     }
 }
 
@@ -41,42 +84,6 @@ function resetGrid() {
         resetMsg = "The grid's width can only be a number from 1-100.\nHow wide should the new grid be?";
         resetGrid();
         /*re-asks until the user submits a valid response or hits escape*/
-    }
-}
-
-function randomizeColor() {
-    let color = Math.floor(Math.random() * 7) + 1;
-    switch(color) {
-        case 1:
-            return "Red";
-            break;
-    
-        case 2:
-            return "Orange";
-            break;
-
-        case 3:
-            return "Yellow";
-            break;
-
-        case 4:
-            return "Green";
-            break;
-
-        case 5:
-            return "Blue";
-            break;
-    
-        case 6:
-            return "Indigo";
-            break;
-    
-        case 7:
-            return "Violet";
-            break;
-    
-        default:
-            alert("Oops, something went wrong!");
     }
 }
 
