@@ -9,40 +9,9 @@ function addGridWidth(gridWidth) {
         /*Changes tile size to fit with other tiles */
         let darkness = 1;
         div.addEventListener("mouseenter", () => {
-            let color = Math.floor(Math.random() * 7) + 1;
-            switch(color) {
-                case 1:
-                    div.style.backgroundColor = "Red";
-                    break;
-            
-                case 2:
-                    div.style.backgroundColor = "Orange";
-                    break;
-
-                case 3:
-                    div.style.backgroundColor = "Yellow";
-                    break;
-
-                case 4:
-                    div.style.backgroundColor = "Green";
-                    break;
-
-                case 5:
-                    div.style.backgroundColor = "Blue";
-                    break;
-            
-                case 6:
-                    div.style.backgroundColor = "Indigo";
-                    break;
-            
-                case 7:
-                    div.style.backgroundColor = "Violet";
-                    break;
-            
-                default:
-                    alert("Oops, something went wrong!");
-            }
             div.style.opacity = `${darkness}`;
+            let newColor = randomizeColor();
+            div.style.backgroundColor = newColor;
             if(darkness >= 0) {
                 darkness -= 0.1;
             }
@@ -72,6 +41,42 @@ function resetGrid() {
         resetMsg = "The grid's width can only be a number from 1-100.\nHow wide should the new grid be?";
         resetGrid();
         /*re-asks until the user submits a valid response or hits escape*/
+    }
+}
+
+function randomizeColor() {
+    let color = Math.floor(Math.random() * 7) + 1;
+    switch(color) {
+        case 1:
+            return "Red";
+            break;
+    
+        case 2:
+            return "Orange";
+            break;
+
+        case 3:
+            return "Yellow";
+            break;
+
+        case 4:
+            return "Green";
+            break;
+
+        case 5:
+            return "Blue";
+            break;
+    
+        case 6:
+            return "Indigo";
+            break;
+    
+        case 7:
+            return "Violet";
+            break;
+    
+        default:
+            alert("Oops, something went wrong!");
     }
 }
 
