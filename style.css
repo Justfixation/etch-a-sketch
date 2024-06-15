@@ -15,7 +15,19 @@ p {
   width: 75vw;
 }
 
-#input-container {
+.pencil {
+  background-color: #C4C4C4;
+}
+
+.fire {
+  background-color: #FF5217;
+}
+
+.ocean {
+  background-color: #17A589;
+}
+
+#input-container, #themes {
   width: 45vw;
   display: flex;
   align-items: center;

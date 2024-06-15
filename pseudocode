@@ -17,3 +17,6 @@ meaning background black color will be fully visible after 3 passes.
 - Change user input from an alert to a button input, to prevent the 
 cursor from starting in the center of the screen
 - Have text field next to 
+
+- Add multiple themes, changed by selecting buttons (Pencil, Fire, Ocean)
+
