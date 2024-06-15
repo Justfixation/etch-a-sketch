@@ -11,5 +11,9 @@ the alert asking for a number from 1-100.
 
 - Make gridHouse background black
 - Make each tile white with 1 opacity
-- Each mouseOver increases opacity (transparency) by 10%,
-meaning background black color will be fully visible after 10 passes.
+- Each mouseOver increases opacity (transparency) by 33%,
+meaning background black color will be fully visible after 3 passes.
+
+- Change user input from an alert to a button input, to prevent the 
+cursor from starting in the center of the screen
+- Have text field next to 

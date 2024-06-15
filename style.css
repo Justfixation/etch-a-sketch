@@ -12,7 +12,26 @@ body {
 }
 
 p {
-  width: 75vh;
+  width: 75vw;
+}
+
+#input-container {
+  width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#input-container p {
+  flex: 1 1 0;
+}
+
+#input-container input {
+  flex: 1 1 0;
+}
+
+#input-container .reset {
+  flex: 1.5 1 0;
 }
 
 #gridHouse {
