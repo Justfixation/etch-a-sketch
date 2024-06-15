@@ -1,5 +1,6 @@
 const gridHouse = document.querySelector("#gridHouse");
 const resetBtn = document.querySelector(".reset");
+const userInput = document.querySelector(".user-input");
 
 function addGridWidth(gridWidth) {
     for(let gridCounter = 0; gridCounter < gridWidth ** 2; gridCounter++) {
@@ -64,27 +65,35 @@ function randomizeColor() {
     }
 }
 
-let resetMsg = "Enter a width from 1-100";
 function resetGrid() {
-    while(gridHouse.firstChild) {
-        gridHouse.removeChild(gridHouse.lastChild);
-    }
-    /* Removes child tiles if any exist*/
-    let gridWidth = prompt(resetMsg);
+    let gridWidth = userInput.value;
     if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth > 0) {
-        resetMsg = "Enter a width from 1-100";
+        removeTiles();
         resetBtn.textContent = "Reset/Resize";
         gridHouse.style.backgroundColor = "black";
         addGridWidth(gridWidth);
     } else if(gridWidth == null || gridWidth == 0) {
-        resetBtn.textContent = "Click to add a sketch grid";
         gridHouse.style.backgroundColor = "white";
-        /*Resets to square 1 if user backs out (since grid is now cleared)*/
+        resetBtn.textContent = "Click to add a sketch grid";
+        removeTiles();
+        /*Resets to square 1 if the user enters nothing*/
     } else {
-        resetMsg = "The grid's width can only be a number from 1-100.\nHow wide should the new grid be?";
-        resetGrid();
-        /*re-asks until the user submits a valid response or hits escape*/
+        alert("The grid's width can only be a number from 1-100.\nHow wide should the new grid be?");
+        /*Advises the user about size parameters, does not reset grid*/
     }
 }
 
+function removeTiles() {
+    while(gridHouse.firstChild) {
+        gridHouse.removeChild(gridHouse.lastChild);
+    }
+    userInput.value = "";
+}
+
+
 resetBtn.addEventListener("click", resetGrid);
+userInput.addEventListener("keydown", function(e) {
+    if(e.code === "Enter") {
+        resetGrid();
+    }
+})

@@ -19,19 +19,21 @@ p {
   width: 45vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 #input-container p {
-  flex: 1 1 0;
+  flex: 0;
+  text-wrap: nowrap;
 }
 
-#input-container input {
-  flex: 1 1 0;
+#input-container .user-input {
+  flex: 0 1 0;
 }
 
 #input-container .reset {
-  flex: 1.5 1 0;
+  flex: 0 1 0;
+  text-wrap: nowrap;
 }
 
 #gridHouse {
