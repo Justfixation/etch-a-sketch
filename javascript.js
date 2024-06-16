@@ -12,21 +12,18 @@ pencilBtn.addEventListener("click", () => {
     currentTheme = "Pencil";
     changeTheme();
     generateGrid();
-    document.querySelector(".user-input").focus();
 });
 
 fireBtn.addEventListener("click", () => {
     currentTheme = "Fire";
     changeTheme();
     generateGrid();
-    document.querySelector(".user-input").focus();
 });
 
 oceanBtn.addEventListener("click", () => {
     currentTheme = "Ocean";
     changeTheme();
     generateGrid();
-    document.querySelector(".user-input").focus();
 });
 
 function changeTheme() {
@@ -145,6 +142,7 @@ function addGridWidth(gridWidth) {
 let gridGenerated = false;
 function generateGrid() {
     gridGenerated = true;
+    document.querySelector(".user-input").focus();
     let gridWidth = userInput.value;
     if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth > 0) {
         resetGrid();
@@ -175,9 +173,8 @@ resetBtn.addEventListener("click", () => {
 userInput.addEventListener("keydown", function(e) {
     if(e.code === "Enter") {
         generateGrid();
-    } else if(typeof(parseInt(e.code)) == "number" && isNaN(parseInt(e.code)) == false && gridGenerated == true) {
-        console.log((parseInt(e.code)));
-        console.log(e.code);
+        gridGenerated = true;
+    } else if(typeof(parseInt(e.key)) == "number" && isNaN(parseInt(e.key)) == false &&  gridGenerated == true) {
         userInput.value = "";
         gridGenerated = false;
     }
