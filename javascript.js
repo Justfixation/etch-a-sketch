@@ -19,6 +19,7 @@ pencilBtn.addEventListener("click", () => {
     changeTheme();
     console.log("Pencil activated");
     resetGrid();
+    document.querySelector(".user-input").focus();
 });
 
 fireBtn.addEventListener("click", () => {
@@ -26,6 +27,7 @@ fireBtn.addEventListener("click", () => {
     changeTheme();
     console.log("Fire activated");
     resetGrid();
+    document.querySelector(".user-input").focus();
 });
 
 oceanBtn.addEventListener("click", () => {
@@ -33,6 +35,7 @@ oceanBtn.addEventListener("click", () => {
     changeTheme();
     console.log("Ocean activated");
     resetGrid();
+    document.querySelector(".user-input").focus();
 });
 
 function changeTheme() {
@@ -151,10 +154,6 @@ function removeTiles() {
     while(gridHouse.firstChild) {
         gridHouse.removeChild(gridHouse.lastChild);
     }
-    /*
-    userInput.value = "";
-    ^ Clears input box 
-    */
 }
 
 function addGridWidth(gridWidth) {
@@ -172,14 +171,29 @@ function addGridWidth(gridWidth) {
                 darkness -= 0.3;
             }
         });
-        /* Changes tile to blue when hovered, and 10% closer to black every time after */
+        /* Changes tile to random themed color when hovered, and 30% closer to black every time after */
         gridHouse.appendChild(div);
     }
 }
 
-resetBtn.addEventListener("click", resetGrid);
+let gridGenerated = false;
+resetBtn.addEventListener("click", () => {
+    resetGrid();
+    gridGenerated = true;
+});
 userInput.addEventListener("keydown", function(e) {
     if(e.code === "Enter") {
         resetGrid();
+        gridGenerated = true;
+    } else if(gridGenerated == true) {
+        userInput.value = "";
+        gridGenerated = false;
     }
 })
+/*Auto-clears input field when entering a new number, as long as the last
+input was a successful grid generation*/
+
+userInput.addEventListener("click", () => {
+    userInput.value = "";
+})
+// Auto-clears input field when clicked
