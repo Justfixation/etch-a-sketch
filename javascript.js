@@ -174,10 +174,13 @@ userInput.addEventListener("keydown", function(e) {
     if(e.code === "Enter") {
         generateGrid();
         gridGenerated = true;
+    }else if(e.key == "Backspace") {
+        gridGenerated = false;
     } else if(typeof(parseInt(e.key)) == "number" && isNaN(parseInt(e.key)) == false &&  gridGenerated == true) {
         userInput.value = "";
         gridGenerated = false;
     }
+    console.log(e.key);
 })
 /*Auto-clears input field when entering a new number, as long as the last
 input was a successful grid generation*/
