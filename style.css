@@ -34,6 +34,10 @@ p {
   justify-content: flex-start;
 }
 
+#themes {
+  margin-bottom: 3vh;
+}
+
 #input-container p {
   flex: 0;
   text-wrap: nowrap;
@@ -53,8 +57,8 @@ p {
     
     justify-content: center;
     align-items: center;
-    height: 75vh;
-    width: 75vh;
+    height: 65vh;
+    width: 65vh;
     flex-flow: row wrap;
 }
 
@@ -65,5 +69,3 @@ p {
     box-sizing: border-box;
     background-color: white;
 }
-
-

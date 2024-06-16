@@ -142,7 +142,8 @@ function resetGrid() {
         /*Resets to square 1 if the user enters nothing*/
     } else {
         alert("The grid's width can only be a number from 1-100.\nHow wide should the new grid be?");
-        /*Advises the user about size parameters, does not reset grid*/
+        userInput.value ="";
+        /*Advises the user about size parameters + clears input field. Does not reset grid*/
     }
 }
 
