@@ -17,19 +17,22 @@ let color7 = "#F4F4F4";
 pencilBtn.addEventListener("click", () => {
     currentTheme = "Pencil";
     changeTheme();
-    console.log("Pencil activated")
+    console.log("Pencil activated");
+    resetGrid();
 });
 
 fireBtn.addEventListener("click", () => {
     currentTheme = "Fire";
     changeTheme();
-    console.log("Fire activated")
+    console.log("Fire activated");
+    resetGrid();
 });
 
 oceanBtn.addEventListener("click", () => {
     currentTheme = "Ocean";
     changeTheme();
-    console.log("Ocean activated")
+    console.log("Ocean activated");
+    resetGrid();
 });
 
 function changeTheme() {
