@@ -5,36 +5,27 @@ const pencilBtn = document.querySelector(".pencil");
 const fireBtn = document.querySelector(".fire");
 const oceanBtn = document.querySelector(".ocean");
 
-let currentTheme = "";
-let color1 = "#F4F4F4";
-let color2 = "#F4F4F4";
-let color3 = "#F4F4F4";
-let color4 = "#F4F4F4";
-let color5 = "#F4F4F4";
-let color6 = "#F4F4F4";
-let color7 = "#F4F4F4";
+let currentTheme = "Pencil";
+changeTheme();
 
 pencilBtn.addEventListener("click", () => {
     currentTheme = "Pencil";
     changeTheme();
-    console.log("Pencil activated");
-    resetGrid();
+    generateGrid();
     document.querySelector(".user-input").focus();
 });
 
 fireBtn.addEventListener("click", () => {
     currentTheme = "Fire";
     changeTheme();
-    console.log("Fire activated");
-    resetGrid();
+    generateGrid();
     document.querySelector(".user-input").focus();
 });
 
 oceanBtn.addEventListener("click", () => {
     currentTheme = "Ocean";
     changeTheme();
-    console.log("Ocean activated");
-    resetGrid();
+    generateGrid();
     document.querySelector(".user-input").focus();
 });
 
@@ -131,31 +122,6 @@ function randomizeColor() {
     }
 }
 
-function resetGrid() {
-    let gridWidth = userInput.value;
-    if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth > 0) {
-        removeTiles();
-        resetBtn.textContent = "Reset/Resize";
-        gridHouse.style.backgroundColor = "black";
-        addGridWidth(gridWidth);
-    } else if(gridWidth == null || gridWidth == 0) {
-        gridHouse.style.backgroundColor = "white";
-        resetBtn.textContent = "Click to add a sketch grid";
-        removeTiles();
-        /*Resets to square 1 if the user enters nothing*/
-    } else {
-        alert("The grid's width can only be a number from 1-100.\nHow wide should the new grid be?");
-        userInput.value ="";
-        /*Advises the user about size parameters + clears input field. Does not reset grid*/
-    }
-}
-
-function removeTiles() {
-    while(gridHouse.firstChild) {
-        gridHouse.removeChild(gridHouse.lastChild);
-    }
-}
-
 function addGridWidth(gridWidth) {
     for(let gridCounter = 0; gridCounter < gridWidth ** 2; gridCounter++) {
         let div = document.createElement("div");
@@ -177,15 +143,41 @@ function addGridWidth(gridWidth) {
 }
 
 let gridGenerated = false;
-resetBtn.addEventListener("click", () => {
-    resetGrid();
+function generateGrid() {
     gridGenerated = true;
+    let gridWidth = userInput.value;
+    if(typeof(parseInt(gridWidth)) == "number" && gridWidth <= 100 && gridWidth > 0) {
+        resetGrid();
+        resetBtn.textContent = "Reset/Resize";
+        gridHouse.style.backgroundColor = "black";
+        addGridWidth(gridWidth);
+    } else if(gridWidth == null || gridWidth == 0) {
+        gridHouse.style.backgroundColor = "white";
+        resetBtn.textContent = "Click to add a sketch grid";
+        resetGrid();
+        /*Resets to square 1 if the user enters nothing*/
+    } else {
+        alert("The grid's width can only be a number from 1-100.\nHow wide should the new grid be?");
+        userInput.value = "";
+        /*Advises the user about size parameters + clears input field. Does not reset grid*/
+    }
+}
+
+function resetGrid() {
+    while(gridHouse.firstChild) {
+        gridHouse.removeChild(gridHouse.lastChild);
+    }
+}
+
+resetBtn.addEventListener("click", () => {
+    generateGrid();
 });
 userInput.addEventListener("keydown", function(e) {
     if(e.code === "Enter") {
-        resetGrid();
-        gridGenerated = true;
-    } else if(gridGenerated == true) {
+        generateGrid();
+    } else if(typeof(parseInt(e.code)) == "number" && isNaN(parseInt(e.code)) == false && gridGenerated == true) {
+        console.log((parseInt(e.code)));
+        console.log(e.code);
         userInput.value = "";
         gridGenerated = false;
     }
@@ -197,3 +189,4 @@ userInput.addEventListener("click", () => {
     userInput.value = "";
 })
 // Auto-clears input field when clicked
+

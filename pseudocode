@@ -20,6 +20,4 @@ cursor from starting in the center of the screen
 
 - Add multiple themes, changed by selecting buttons (Pencil, Fire, Ocean)
 
-- Add event listener to userInput that internally stores any previous value,
-then clears the field when focused.
-- If focus leaves without making changes, then resets field value to stored value.
+
